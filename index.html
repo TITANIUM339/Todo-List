@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./images/checkmark-square.svg">
+    <title>Todo List</title>
+</head>
+<body>
+    <header>
+        <div>
+            <button class="hamburger-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+        <div class="logo">
+            <div></div>
+            <h1>Todo List</h1>
+        </div>
+    </header>
+    <main>
+        <nav class="sidebar">
+            <div class="main-container">
+                <button class="today navigation">
+                    <div></div>
+                    <h3>Today</h3>
+                </button>
+                <button class="this-week navigation">
+                    <div></div>
+                    <h3>This week</h3>
+                </button>
+                <button class="all navigation">
+                    <div></div>
+                    <h3>All</h3>
+                </button>
+            </div>
+            <div class="projects-container">
+                <div class="text">Projects</div>
+                <ul>
+                    
+                </ul>
+                <button class="add-project">
+                    <div></div>
+                    <div>Add project</div>
+                </button>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="text"></div>
+            <div class="tasks">
+                
+            </div>
+            <button class="add-task" title="Add task"></button>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <span class="copyright"></span>
+            <a href="https://github.com/TITANIUM339" target="_blank"><img src="./images/github.svg" alt="github icon"></a>
+        </div>
+        <script>
+            document.querySelector(".copyright").innerHTML = `Copyright &#169; TITANIUM339 ${new Date().getFullYear()}`;
+        </script>
+    </footer>
+    <script src="./main.js"></script>
+</body>
+</html>
