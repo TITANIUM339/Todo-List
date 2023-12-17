@@ -96,9 +96,14 @@ main {
     left: 0px;
 }
 
-.main-container>button>div {
+.main-container>button>:first-child {
     width: 30px;
     height: 30px;
+}
+
+.main-container>button>:last-child {
+    font-size: larger;
+    font-weight: bold;
 }
 
 .main-container {
@@ -107,17 +112,17 @@ main {
     gap: 10px;
 }
 
-.all>div {
+.all>:first-child {
     background: url("./images/calendar.svg") no-repeat;
     background-size: cover;
 }
 
-.today>div {
+.today>:first-child {
     background: url("./images/calendar-day.svg") no-repeat;
     background-size: cover;
 }
 
-.this-week>div {
+.this-week>:first-child {
     background: url("./images/calendar-week.svg") no-repeat;
     background-size: cover;
 }
@@ -210,6 +215,7 @@ ul {
     background: none;
     color: white;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 .project-info {
@@ -236,6 +242,10 @@ ul {
     height: 30px;
     background: url("./images/plus.svg") no-repeat;
     background-size: cover;
+}
+
+.add-project>:last-child {
+    font-weight: bold;
 }
 
 .project-info>:first-child {
