@@ -32,7 +32,7 @@ export default class {
     
             // Check for free spot.
             if (!this.#todoList.hasOwnProperty(projectID)) {
-                let count = projectID + 1;
+                let count = projectID;
 
                 while (true) {
                     let newProjectName = "Project" + count;
@@ -88,7 +88,7 @@ export default class {
             if (taskID === LIMIT) return -1;
 
             if (this.#todoList.hasOwnProperty(projectID) && !this.#todoList[projectID].tasks.hasOwnProperty(taskID)) {
-                let count = taskID + 1;
+                let count = taskID;
                 
                 while (true) {
                     let newTaskName = "Task" + count;
