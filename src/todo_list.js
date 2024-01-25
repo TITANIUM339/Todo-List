@@ -32,7 +32,7 @@ export default class {
     
             // Check for free spot.
             if (!this.#todoList.hasOwnProperty(projectID)) {
-                let count = projectID;
+                let count = projectID? projectID:1;
 
                 while (true) {
                     let newProjectName = "Project" + count;
@@ -88,7 +88,7 @@ export default class {
             if (taskID === LIMIT) return -1;
 
             if (this.#todoList.hasOwnProperty(projectID) && !this.#todoList[projectID].tasks.hasOwnProperty(taskID)) {
-                let count = taskID;
+                let count = taskID? taskID:1;
                 
                 while (true) {
                     let newTaskName = "Task" + count;
@@ -162,12 +162,23 @@ export default class {
     }
     
     // Returns all tasks of a specific project.
-    static getTasks(projectID) {
-        return this.#todoList[projectID].tasks;
+    static getTasksFromProject(projectID) {
+        return JSON.parse(JSON.stringify(this.#todoList[projectID].tasks));
     }
 
     // Returns a task.
     static getTask(projectID, taskID) {
-        return this.#todoList[projectID].tasks[taskID];
+        return {...this.#todoList[projectID].tasks[taskID]};
+    }
+
+    // Returns all tasks.
+    static getTasks() {
+        const allTasks = {};
+
+        for (const key in this.#todoList) {
+           allTasks[key] = JSON.parse(JSON.stringify(this.#todoList[key].tasks));
+        }
+
+        return allTasks;
     }
 }
