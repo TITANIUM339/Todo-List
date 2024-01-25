@@ -246,7 +246,7 @@ const addTaskButton = (function () {
         // Checks if number of tasks didn't exceed 10.
         if (taskID !== -1) {
             const tasksObject = {};
-            tasksObject[projectID] = TodoList.getTasks(projectID);
+            tasksObject[projectID] = TodoList.getTasksFromProject(projectID);
 
             tasks.loadTasks(tasksObject, TodoList.getProjectName(projectID));
 
@@ -350,7 +350,7 @@ const project = (function () {
             // Load tasks of saved project if it is selected.
             if (navigation.getSelectedProject() === element.dataset.id) {
                 const tasksObject = {};
-                tasksObject[element.dataset.id] = TodoList.getTasks(element.dataset.id);
+                tasksObject[element.dataset.id] = TodoList.getTasksFromProject(element.dataset.id);
 
                 tasks.loadTasks(tasksObject, name);
             // Load tasks from the selected navigation tab.
@@ -453,7 +453,7 @@ const navigation = (function () {
         const tasksObject = {};
 
         for (const projectID in allProjects) {
-            let allTasks = TodoList.getTasks(projectID);
+            let allTasks = TodoList.getTasksFromProject(projectID);
 
             tasksObject[projectID] = {};
 
@@ -504,7 +504,9 @@ const navigation = (function () {
         selectedNavigationTab = null;
 
         const tasksObject = {};
-        tasksObject[element.dataset.id] = TodoList.getTasks(element.dataset.id);
+        tasksObject[element.dataset.id] = TodoList.getTasksFromProject(
+            element.dataset.id
+        );
 
         highlight(element);
 
@@ -550,7 +552,7 @@ const navigation = (function () {
 
         button.classList.add("add-task-hidden");
 
-        const tasksObject = getTasksByDate(() => {return true});
+        const tasksObject = TodoList.getTasks();
 
         tasks.loadTasks(tasksObject, isTasksObjectEmpty(tasksObject)? "You have no tasks 😎":"All tasks");
     }
